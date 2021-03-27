@@ -51,4 +51,17 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+//Update a specific user
+router.patch('/:id', async (req, res) => {
+    try{
+        const updatedUser = await User.updateOne(
+            {_id: req.params.id}, 
+            {$set: {name: req.body.name}});
+        res.json(updatedUser);
+    } catch (err) {
+        res.json({message: err});
+    }
+});
+
+
 module.exports = router;
