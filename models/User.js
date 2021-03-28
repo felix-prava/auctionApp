@@ -4,19 +4,35 @@ let mongoose = require('mongoose');
 let UserSchema = mongoose.Schema({
     name :{
         type: String,
-        required: true
+        required: true,
+        min: 6,
+        max: 255
     },
     email :{
         type: String,
-        required: true
+        required: true,
+        min: 6,
+        max: 255
     },
     username :{
         type: String,
-        required: true
+        required: true,
+        min: 6
     },
     password :{
         type: String,
-        required: true
+        required: true,
+        min: 6
+    },
+    location :{
+        type: String
+    },
+    phoneNumber :{
+        type: String
+    },
+    date: {
+        type: Date,
+        default: Date.now
     }
 });
 
