@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
         const users = await User.find();
         res.json(users);
     } catch{
-        res.status(420).json({message: "This is Felix's error" + err})
+        res.status(420).json({ err })
     }
 });
 
@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
         const user = await User.findById(req.params.id);
         res.status(209).json(user);
     } catch(err){
-        res.json({message: "There are some problems.. " + err});
+        res.json({message: err});
     }
 });
 

@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require("dotenv");
 require('dotenv/config');
+const PORT = process.env.PORT || 8000
 
 //Init app
 const app = express();
@@ -18,8 +19,9 @@ app.use(cors());
 
 //Connect to DB
 mongoose.connect(
-    process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
-    console.log('Connected to DB!')
+    process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to DB!'))
+    .catch(err => console.log(err)
 );
 
 //Import routes
@@ -28,7 +30,7 @@ const authRoute = require('./routes/auth');
 
 //Route Middlewares
 app.use('/api/users', usersRoute);
-app.use('/api/user', authRoute);
+app.use('/api/auth', authRoute);
 
 //Home route
 app.get('/', (req, res) => {
@@ -36,6 +38,6 @@ app.get('/', (req, res) => {
 });
 
 //Start server
-app.listen(3000, () => 
-    console.log('Server up and running!')
+app.listen(PORT, () => 
+    console.log(`Server up and running on port ${PORT}!`)
 );
