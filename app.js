@@ -27,11 +27,6 @@ mongoose.connect(
 //Import routes
 const usersRoute = require('./routes/users');
 const authRoute = require('./routes/auth');
-//
-
-
-
-const a, b;
 
 //Route Middlewares
 app.use('/api/users', usersRoute);
