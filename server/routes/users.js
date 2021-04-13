@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
-const Car = require('../models/Car');
 
 //Get all the users
 router.get('/', async (req, res) => {
@@ -13,7 +12,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-
 //Add a user
 router.post('/', (req, res) => {
     const user = new User({
@@ -22,7 +20,7 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     });
-    
+
     user.save()
     .then(data => {
         res.status(200).json(data);
@@ -63,6 +61,5 @@ router.patch('/:id', async (req, res) => {
         res.json({message: err});
     }
 });
-
 
 module.exports = router;

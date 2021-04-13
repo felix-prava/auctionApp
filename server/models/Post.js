@@ -2,11 +2,28 @@ let mongoose = require('mongoose');
 
 // Post Schema
 let PostSchema = mongoose.Schema({
-    name :{
+    car_id :{
+        type: mongoose.Schema.Types.ObjectId, ref: 'Car',
+        required: true
+    },
+    price :{
+        type: Number,
+        required: true
+    },
+    vat :{
         type: String,
-        required: true,
-        min: 6,
-        max: 255
+        required: true
+    },
+    bid_time_remaining :{
+        type: String,
+        required: true
+    },
+    auction_type :{
+        type: String,
+        required: true
+    },
+    images :{
+        type: [File]
     }
 });
 
