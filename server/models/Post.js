@@ -23,7 +23,7 @@ let PostSchema = mongoose.Schema({
         required: true
     },
     images :{
-        type: [File]
+        //type: [File] should be
     }
 });
 
