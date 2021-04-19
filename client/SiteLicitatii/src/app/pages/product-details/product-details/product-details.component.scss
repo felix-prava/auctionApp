@@ -1,0 +1,85 @@
+::ng-deep.mat-dialog-container {
+    overflow-y: scroll;
+    background-color:#f7f7f7 ;
+    overflow:hidden;
+    width: 100%;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+        .col-md-8{
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+            .CarTitle{
+                width: 41.7vw;
+                padding: 0 0 10px 0;
+            }
+            .CarPicture{
+                padding-bottom: 30px;
+                margin-bottom: 10px;
+                position: relative;
+                .image-gallery{
+                    user-select: none;
+                    -webkit-tap-highlight-color: transparent;
+                }
+            }
+            .CarDetails{
+                background-color: white;
+                border: 1px solid #E2E2E2;
+                margin-bottom: 20px;
+                color: #555A60;
+                .title{
+                    width:100%; 
+                   
+                    padding-top: 17px;
+                    padding-bottom: 14px;
+                    padding-left: 10px;
+                    font-weight: bold;
+                    font-size: 140%;
+                    margin: 0;
+                    padding: 0;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    margin-bottom: 30px;   
+                    max-width: 100%;
+                }
+                .line-group{
+                    padding: 10px;
+                    border-bottom: 1px solid #E2E2E2;
+                    .line{
+                        display: flex;
+                        min-height: 40px;
+                        border-bottom: 1px solid #E2E2E2;
+                        padding: 8px 0;
+                        flex-wrap: wrap;
+                        .col{
+                        flex: 0 0 50%;
+                        max-width: 50%;
+                        }
+                        .col-2{
+                            flex: 0 0 50%;
+                            max-width: 50%;
+                            display: flex;
+                            position: relative;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.text{
+    color:black;
+    font-family: sans-serif;
+}
+
+::ng-deep.cdk-overlay-pane{
+    overflow:auto;
+}

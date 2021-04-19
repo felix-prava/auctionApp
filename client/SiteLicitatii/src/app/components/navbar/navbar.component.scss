@@ -1,0 +1,36 @@
+.navbar{
+    height:80px;
+    width:auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    ::shadow {
+        color:grey;
+    }
+    .button{
+        font-family: sans-serif;
+        float: right;
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        height: 80px;
+        width: 100px;
+        border: none;
+        outline:none;
+        background-color: rgb(255, 255, 255);
+        margin-bottom: 0px;
+        margin-top:0px;
+
+        
+    }
+    .button:hover{
+        background-color:#008C95;
+    }
+
+    .login {
+        margin-right: 300px;
+    }
+
+    .logo{
+        width:20%
+    }
+}

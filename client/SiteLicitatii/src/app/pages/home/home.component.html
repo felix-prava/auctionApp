@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="page-desktop">
+        <div class="col-filters">
+            <h2 class="title">Find cars</h2>
+            <div class="reveal">
+                <mat-accordion class="example-headers-align" multi>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                         Focused on
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                      <div *ngFor="let filter of filters.focused_on">
+                        <mat-checkbox (change)="onFilterChange(filter.name,'focused_on',$event.checked)">
+                            {{filter.name}}
+                        </mat-checkbox>
+                      </div>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                           Model
+                          </mat-panel-title>
+                      </mat-expansion-panel-header>
+                        <div *ngFor="let filter of filters.model">
+                          <mat-checkbox  (change)="onFilterChange(filter.name,'model',$event.checked)">
+                              {{filter.name}}
+                          </mat-checkbox>
+                        </div>
+                      </mat-expansion-panel>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                           Fuel type
+                          </mat-panel-title>
+                      </mat-expansion-panel-header>
+                        <div *ngFor="let filter of filters.fuel_type">
+                          <mat-checkbox (change)="onFilterChange(filter.name,'fuel_type',$event.checked)">
+                              {{filter.name}}
+                          </mat-checkbox>
+                        </div>
+                      </mat-expansion-panel>
+                      <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                           Transmission
+                          </mat-panel-title>
+                      </mat-expansion-panel-header>
+                        <div *ngFor="let filter of filters.transmission">
+                          <mat-checkbox (change)="onFilterChange(filter.name,'transmission',$event.checked)">
+                              {{filter.name}}
+                          </mat-checkbox>
+                        </div>
+                      </mat-expansion-panel>
+                  </mat-accordion>
+                  
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="col-lg-9">
+                <div class="results" *ngFor="let post of data;let i = index"
+                     (click)="openDialog(post.car_details.car_specifications.vin)">
+                    <div class="list">
+                        <div class="car">
+                            <div class="main" >
+                                <div class="headline">
+                                    <div class="title">
+                                        {{post.title.car_model}} {{post.title.car_engine_size}} {{post.title.car_year}} - {{post.title.car_fuel_type}}
+                                      - {{post.title.car_transmission}} - {{post.title.car_power}} - {{post.title.car_mileage}}
+                                        </div>
+                                </div>
+                                <div class="cols">
+                                    <div class="first-col">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150">
+                                            <rect fill="#ddd" width="245" height="150"/>
+                                            <text fill="rgba(0,0,0,0.5)" font-family="sans-serif" font-size="30" dy="10.5" font-weight="bold" x="50%" y="50%" text-anchor="middle">PICTURE</text>
+                                          </svg>
+                                          <div class="remaining-time">Ends in: 2 Days</div>
+                                    </div>
+                                    <div class="auction-details">
+                                        <div class="columns">
+                                            <div class="column">
+                                                <label>Estimated Price</label>
+                                            </div>
+                                            <div class="column"></div>
+                                            <div class="column"></div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <span class="strong">${{post.price}}</span>
+                                            </div>
+                                            <div class="column"></div>
+                                            <div class="column"></div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <span class="data">{{post.car_details.car_specifications.first_registration}}</span>
+                                            </div>
+                                            <div class="column">
+                                                <span class="data">{{post.car_details.car_specifications.co2_emissions_minimum_value}} g/km</span>
+                                            </div>
+                                            <div class="column">
+                                                <span class="data">{{post.car_details.car_specifications.power}} hp</span>
+                                            </div>
+                                        </div>
+                                        <div class="columns">
+                                            <div class="column">
+                                                <span class="data">{{post.car_details.car_specifications.body_type}}</span>
+                                            </div>
+                                            <div class="column">
+                                                <span class="data">{{post.vat}}</span>
+                                            </div>
+                                            <div class="column">
+                                                <span class="data">{{post.car_details.car_origin.country_origin}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="show-detail-arror">
+                              <span class="arrow"> > </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

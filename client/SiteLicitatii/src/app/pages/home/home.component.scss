@@ -1,0 +1,179 @@
+.post{
+    flex: 1 1 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    
+
+}
+.container{
+    width: 100%;
+    max-width: 100vw;
+    margin-right: auto;
+    margin-left: auto;
+    .page-desktop {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -15px;
+        .col-filters{
+            padding-top: 3%;
+            margin-left :10%;
+            position:absolute;
+            .filter-title{
+                background-color: white;
+                border: 1px solid #e2e2e2;
+                border-bottom: none;
+                font-size: 160%;
+                padding: 10px;
+            }
+            .CheckboxesCriteria{
+                border-left: 1px solid #e2e2e2;
+                border-right: 1px solid #e2e2e2;
+                border-top: 1px solid #e2e2e2;
+            }
+            .reveal{
+                position: relative;
+                width: 100%;
+                overflow: visible;
+                background-color: white;
+            }
+        }
+        .col-md-8{
+            padding-left: 30%;
+            flex: 0 0 66.666667%;
+            max-width: 66.666667%;
+            .col-lg-9{
+                flex: 0 0 75%;
+                max-width: 75%;
+                .results{
+                    margin-top:10px;
+                    margin-bottom: 40px;
+                    .list{
+                        margin-bottom: 15px;
+                        .car{
+                            position: relative;
+                            color: #555A60;
+                            background-color: white;
+                            display: flex;
+                            flex-direction: row;
+                            border: solid 1px #E2E2E2;
+                            .main{
+                                flex: 1 1 auto;
+                                padding: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                cursor: pointer;
+                                .headline{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    position: relative;
+                                    .title{
+                                        font-weight: bold;
+                                        font-size: 129%;
+                                        text-transform: uppercase;
+                                        margin: 0 0 10px 0;
+                                    }
+                                }
+                                .cols{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: stretch;
+                                    flex-direction: row;
+                                    .first-col{
+                                        flex: 0 0 226px;
+                                        .remaining-time{
+                                            background-color: #F7F7F7;
+                                            padding: 4px 10px;
+                                            margin-bottom: 10px;
+                                            position: relative;
+                                            top: -1px;
+                                            width: 225px;
+                                            margin-bottom: 0px;
+                                        }
+                                    }
+                                    .auction-details{
+                                        padding: 0 15px;
+                                        flex: 1;
+                                        .columns{
+                                          
+                                            display: flex;
+                                            align-items: flex-start;
+                                            .column{
+                                               
+                                                flex: 1 1 30%;
+                                                .strong{
+                                                    display:block;
+                                                    color: black;
+                                                    font-size: 129%;
+                                                    font-weight: bold;
+                                                    line-height: 35px;
+                                                    margin-bottom: 20px;
+                                                }
+                                                .data{
+                                                    display:block;
+                                                    margin-top:15px;
+                                                    margin-bottom: 12px;
+                                                    position: relative;
+                                                }
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                            }
+                            .show-detail-arror{
+                                flex: 0 0 20px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border-left: solid 1px #E2E2E2;
+                                cursor: pointer;
+                                transition: background-color 0.3s ease-out;
+                                text-decoration: none;
+                                .arrow{
+                                    color:#008C95;
+                                }
+                            }
+                         
+                           
+                            
+                        }
+                        .car:hover{
+                            box-shadow: 0 1px 1px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                             .show-detail-arror{
+                                 background-color: #008C95;
+                                 .arrow{
+                                     color:white;
+                                 }
+                             }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.expansion-panel {
+    color:black;
+    background-color: #e2e2e2;
+    :hover{
+        color:red;
+    }
+}
+
+::ng-deep.mat-expansion-panel{
+    color:black;
+    background-color: #E2E2E2;
+}
+
+::ng-deep.mat-expansion-panel-header-title{
+    color:black;
+    background-color: #E2E2E2;
+}
+::ng-deep.mat-expansion-panel-header {
+    color:black;
+    background-color:#E2E2E2;
+}

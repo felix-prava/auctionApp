@@ -1,0 +1,87 @@
+
+<div mat-dialog-content>
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="CarTitle">
+        <h1 class="text"> {{post.title.car_model}} {{post.title.car_engine_size}} {{post.title.car_year}} - {{post.title.car_fuel_type}}
+          - {{post.title.car_transmission}} - {{post.title.car_power}} hp - {{post.title.car_mileage}} Km</h1>
+      </div>
+      <div class="CarPicture">
+        <div class="image-gallery">
+          <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">
+            <rect fill="#ddd" width="800" height="400"/>
+            <text fill="rgba(0,0,0,0.5)" font-family="sans-serif" font-size="30" dy="10.5" font-weight="bold" x="50%" y="50%" text-anchor="middle">PICTURE</text>
+          </svg>
+        </div>
+      </div>
+      <div class="CarDetails">
+        <div class="title">
+          <div>
+            Specifications
+          </div>
+      </div>
+      <div class="line-group">
+        <div class="line">
+          <div class="col">First registration</div>
+          <div class="col-2">{{post.car_details.car_specifications.first_registration}}</div>
+        </div>
+        <div class="line">
+          <div class="col">Mileage (in km)</div>
+          <div class="col-2">{{post.car_details.car_specifications.mileage}} km</div>
+        </div>
+        <div class="line">
+          <div class="col">Fuel type</div>
+          <div class="col-2">{{post.car_details.car_specifications.fuel_type}}</div>
+        </div>
+        <div class="line">
+          <div class="col">Transmission type</div>
+          <div class="col-2">{{post.car_details.car_specifications.transmission_type}}</div>
+        </div>
+        <div class="line">
+          <div class="col">CO2 emissions standard</div>
+          <div class="col-2">{{post.car_details.car_specifications.co2_emissions_standard}}</div>
+        </div>
+        <div class="line">
+          <div class="col">CO2 emissions (according to owner)</div>
+          <div class="col-2">{{post.car_details.car_specifications.co2_emissions_minimum_value}} g/km</div>
+        </div>
+        <div class="line">
+          <div class="col">Power</div>
+          <div class="col-2">{{post.car_details.car_specifications.power}} hp</div>
+        </div>
+        <div class="line">
+          <div class="col">Engine size</div>
+          <div class="col-2">{{post.car_details.car_specifications.engine_size}} cc</div>
+        </div>
+        <div class="line">
+          <div class="col">Body type</div>
+          <div class="col-2">{{post.car_details.car_specifications.body_type}}</div>
+        </div>
+        <div class="line">
+          <div class="col">Doors</div>
+          <div class="col-2">{{post.car_details.car_specifications.doors}}</div>
+        </div>
+        <div class="line">
+          <div class="col">Number of places</div>
+          <div class="col-2">{{post.car_details.car_specifications.number_of_places}}</div>
+        </div>
+        <div class="line">
+          <div class="col">VIN</div>
+          <div class="col-2">{{post.car_details.car_specifications.vin}}</div>
+        </div>
+        <div class="line">
+          <div class="col">Number of keys</div>
+          <div class="col-2">{{post.car_details.car_specifications.number_of_keys}}</div>
+        </div>
+        <div class="line">
+          <div class="col">Paint</div>
+          <div class="col-2">{{post.car_details.car_specifications.paint}}</div>
+        </div>
+     </div>
+    </div>
+
+  </div> 
+
+
+</div>
