@@ -10,11 +10,7 @@ const MONGO_URL = process.env.MOGNO_URL ||  'mongodb://' + MONGO_HOSTNAME +':'+M
 const SERVER_PORT = process.env.SERVER_PORT || 31337;
 const SERVER_AUTH_KEY = process.env.SERVER_AUTH_KEY || "shhh!_it's_a_secret";
 
-/*
-DB_CONNECTION="mongodb+srv://adminMongoDB:admintestMongoDB@cluster0.zcu3w.mongodb.net/auction?retryWrites=true&w=majority"
-SECRET_TOKEN=
-PORT=3000
-*/
+
 const MONGO_OPTIONS = {
     useUnifiedTopology: true,
     useNewUrlParser: true,

@@ -14,4 +14,4 @@ const privateRoute = function(req, res, next) {
     next();
 }
 
-module.exports = privateRoute;
+module.exports = {privateRoute};

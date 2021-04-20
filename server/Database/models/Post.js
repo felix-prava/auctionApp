@@ -103,7 +103,7 @@ const titleCarSchema = mongoose.Schema({
 });
 
 // Car Schema
-let CarSchema = mongoose.Schema({
+const CarSchema = mongoose.Schema({
     car_title :{
         type: titleCarSchema
     },
@@ -121,4 +121,35 @@ let CarSchema = mongoose.Schema({
     }
 });
 
-const Car = module.exports = mongoose.model('Car', CarSchema);
+// Post Schema
+let PostSchema = mongoose.Schema({
+    car :{
+        type : CarSchema,
+        required:true
+    },
+    price :{
+        type: Number,
+        required: true
+    },
+    vat :{
+        type: String,
+        required: true
+    },
+    bid_time_remaining :{
+        type: String,
+        required: true
+    },
+    auction_type :{
+        type: String,
+        required: true
+    },
+    images :{
+        //type: [File] should be
+    }
+    },{
+        collection : "Posts",
+        timestamps : true
+    }
+);
+
+const Post = module.exports = mongoose.model('Post', PostSchema);

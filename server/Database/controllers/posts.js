@@ -14,8 +14,15 @@ const getAllPosts = async (req, res) => {
 
 //Add a post into the DB
 const addPost = (req, res) => {
+    console.log(req.query);
+    //WARNING : needs post verification
+    //foloseste req.query ca sa iei parametrii
+    console.log(req.query);
+    //foloseste api tester si transmite ceva cu query params
+    //se transmite in format json 
+
     const post = new Post({
-        //Post details
+        //WARNING : aici e munca de chinez bro
     });
     post.save()
     .then(data => {

@@ -25,16 +25,16 @@ mongoose.connect(config.config.mongo_connection_details.url,config.mongo_options
 
 
 //Import routes
-// const usersRoute = require('./routes/users');
-const authRoute = require('./routes/auth');
+const usersRoute = require('./routes/users');
+// const authRoute = require('./routes/auth');
 const postsRoute = require('./routes/posts');
-const carsRoute = require('./routes/cars');
+// const carsRoute = require('./routes/cars');
 
 //Route Middlewares
-// app.use('/api/users', usersRoute);
-app.use('/api/auth', authRoute);
+app.use('/api/users', usersRoute);
+// app.use('/api/auth', authRoute);
 app.use('/api/posts', postsRoute);
-app.use('/api/cars', carsRoute);
+// app.use('/api/cars', carsRoute);
 
 //Home route
 app.get('/', (req, res) => {
