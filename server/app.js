@@ -1,28 +1,28 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require("dotenv");
-require('dotenv/config');
-const PORT = process.env.PORT || 8000
+const config = require("./config/config.js");
+
 
 //Init app
 const app = express();
 
 //Body Parser Middleware
-app.use(bodyParser.urlencoded({extended: false}))
 
 //Parse application/json
-app.use(bodyParser.json());
 
 app.use(cors());
 
 //Connect to DB
-mongoose.connect(
-    process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to DB!'))
-    .catch(err => console.log(err)
-);
+mongoose.connect(config.config.mongo_connection_details.url,config.mongo_options)
+    .then((result) => {
+        console.log('CONNECTED TO MONGO')
+    })
+    .catch((error) => {
+        console.log('ERROR CONNECTION TO MONGO');
+    });
+
 
 //Import routes
 const usersRoute = require('./routes/users');
@@ -42,6 +42,6 @@ app.get('/', (req, res) => {
 });
 
 //Start server
-app.listen(PORT, () => 
-    console.log(`Server up and running on port ${PORT}!`)
+app.listen(config.config.server_options.PORT, () => 
+    console.log(`Server up and running on port ${config.config.server_options.PORT}!`)
 );

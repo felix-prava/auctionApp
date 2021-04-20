@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-  "author": "Prava Felix-Mihai",
+  "author": "no one",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^17.1.1",
