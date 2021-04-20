@@ -42,6 +42,6 @@ app.get('/', (req, res) => {
 });
 
 //Start server
-app.listen(config.config.server_options.PORT, () => 
-    console.log(`Server up and running on port ${config.config.server_options.PORT}!`)
+app.listen(config.config.server_options.port, () => 
+    console.log(`Server up and running on port ${config.config.server_options.port}!`)
 );
