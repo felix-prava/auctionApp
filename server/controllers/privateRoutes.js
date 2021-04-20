@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = function(req, res, next) {
+const privateRoute = function(req, res, next) {
     const token = req.header('auth-token');
     if (!token)
         return res.status(401).send('Access denied!');
@@ -13,3 +13,5 @@ module.exports = function(req, res, next) {
     }
     next();
 }
+
+module.exports = privateRoute;

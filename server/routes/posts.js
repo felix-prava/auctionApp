@@ -1,58 +1,20 @@
-const express = require('express');
-const router = express.Router();
-const Post = require('../models/Post');
+const router = require('express').Router();
+const postsConfig = require("../controllers/posts.js");
+
 
 //Get all the posts
-router.get('/', async (req, res) => {
-    try{
-        const posts = await Post.find();
-        res.status(200).json(posts);
-    } catch{
-        res.json({ err })
-    }
-});
+router.get('/',postsConfig.getAllPosts);
 
 //Add a post into the DB
-router.post('/', (req, res) => {
-    const post = new Post({
-        //Post details
-    });
-    post.save()
-    .then(data => {
-        res.status(200).json(data);
-    })
-    .catch(err => {
-        res.status(400).json(err);
-    })
-});
+router.post('/',postsConfig.addPost);
 
 //Get a specific post from the DB
-router.get('/:id', async (req, res) => {
-    try {
-        const post = await Post.findById(req.params.id);
-        res.status(200).json(post);
-    } catch(err){
-        res.json({message: err});
-    }
-});
+router.get('/:id',postsConfig.getPost);
 
 //Delete a specific post
-router.delete('/:id', async (req, res) => {
-    try{
-        const postDeleted = await Car.deleteOne({_id: req.params.id});
-        res.status(200).json(postDeleted);
-    } catch(err){
-        res.json({message: err})
-    }
-});
+router.delete('/:id',postsConfig.deletePost);
 
 //Update a specific post
-router.patch('/:id', async (req, res) => {
-    try{
-
-    } catch (err) {
-        res.json({message: err});
-    }
-});
+router.patch('/:id',postsConfig.updatePost);
 
 module.exports = router;

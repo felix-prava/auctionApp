@@ -1,58 +1,20 @@
-const express = require('express');
-const router = express.Router();
-const Car = require('../models/Car');
+const router = require('express').Router();
+const carsConfig = require('../controllers/cars.js')
 
 //Get all the cars
-router.get('/', async (req, res) => {
-    try{
-        const cars = await Car.find();
-        res.status(200).json(cars);
-    } catch{
-        res.json({ err })
-    }
-});
+router.get('/',carsConfig.getAllCars);
+
 
 //Add a car
-router.post('/', (req, res) => {
-    const car = new Car({
-        //Car details
-    });
-    car.save()
-    .then(data => {
-        res.status(200).json(data);
-    })
-    .catch(err => {
-        res.status(400).json(err);
-    })
-});
+router.post('/',carsConfig.addCar);
 
 //Get a specific car
-router.get('/:id', async (req, res) => {
-    try {
-        const car = await Car.findById(req.params.id);
-        res.status(200).json(car);
-    } catch(err){
-        res.json({message: err});
-    }
-});
+router.get('/:id',carsConfig.getCar);
 
 //Delete a specific car from the DB
-router.delete('/:id', async (req, res) => {
-    try{
-        const carDeleted = await Car.deleteOne({_id: req.params.id});
-        res.status(200).json(carDeleted);
-    } catch(err){
-        res.json({message: err})
-    }
-});
+router.delete('/:id',carsConfig.deleteCar);
 
 //Update a specific car
-router.patch('/:id', async (req, res) => {
-    try{
-
-    } catch (err) {
-        res.json({message: err});
-    }
-});
+router.patch('/:id',carsConfig.updateCar);
 
 module.exports = router;
