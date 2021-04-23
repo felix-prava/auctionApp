@@ -45,6 +45,12 @@ export class NavbarComponent implements OnInit {
 goToMyProfile() {
   this.router.navigate(["profile"]);
 }
+
+LogOut() {
+  this.authentication.logout();
+  this.router.navigate([""]);
+}
+
   ngOnInit(): void {
     this.isLoggedIn();
 
