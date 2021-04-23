@@ -43,7 +43,7 @@ export class HomeComponent {
 
 
    constructor(public dialog: MatDialog,private router:Router) {
-    this.router.navigate([], {queryParams: {key: ["hello","hey"]},queryParamsHandling: 'merge'});
+   
    }
 
   openDialog(event:any) {

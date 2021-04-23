@@ -25,6 +25,7 @@ const database_config = {
 const server_options = {
     address : 'localhost',
     port : SERVER_PORT,
+    private_key:"well_this_is_a_guarded_secret"
    
 }
 

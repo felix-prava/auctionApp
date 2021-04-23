@@ -1,22 +1,19 @@
-<form action="action_page.php" method="post">
-    <div class="imgcontainer">
-    </div>
-  
+<form>
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <label ><b>Username</b></label>
+      <input [(ngModel)]="username" name="username" type="text" placeholder="Enter Username" required>
   
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-  
-      <button type="submit">Login</button>
+      <label><b>Password</b></label>
+      <input  [(ngModel)]="password" name="password" type="password" placeholder="Enter Password" required>
+      <label *ngIf="displayError">Something went wrong, maybe try again?</label>
+      <button (click)="logIn()">Login</button>
       <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
+        <input type="checkbox" checked="checked"> Remember me
       </label>
     </div>
   
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="button" class="cancelbtn" (click)="onCancel()" >Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>

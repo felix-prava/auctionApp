@@ -14,6 +14,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { JwtInterceptor } from './interceptors/jwt-interceptor';
+import { ErrorInterceptor } from './interceptors/error-incerceptor';
 
 @NgModule({
   declarations: [
@@ -33,10 +37,17 @@ import { RegisterComponent } from './components/register/register.component';
     MatDialogModule,
     MatButtonModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
    
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

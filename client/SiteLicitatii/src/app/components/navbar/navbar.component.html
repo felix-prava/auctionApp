@@ -2,13 +2,16 @@
    
     
     <img class="logo" src="../../../assets/Site Licitatii.svg">
-    <button class="button login" (click)=" openLoginDialog()">Login</button>    
+
+    <button *ngIf="!currentUserLoggedIn;else myProfileButton" class="button login" (click)=" openLoginDialog()">Login</button>    
 
     <button class="button" (click)=" openRegisterDialog()">Register</button>    
 
     <button class="button" routerLink="">Home</button>    
-
-
-
-
 </div>
+
+<ng-template #myProfileButton>
+    
+    <button class="button login" (click)=" openLoginDialog()">My Profile</button>    
+
+</ng-template>
