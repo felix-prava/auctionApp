@@ -23,6 +23,10 @@ const routes: Routes =
   {
     path:"register",
     component:HomeComponent
+  },
+  {
+    path: "profile",
+    component:ProfileComponent
   }
 ];
 

@@ -42,7 +42,9 @@ export class NavbarComponent implements OnInit {
  
 }
 
-
+goToMyProfile() {
+  this.router.navigate(["profile"]);
+}
   ngOnInit(): void {
     this.isLoggedIn();
 
