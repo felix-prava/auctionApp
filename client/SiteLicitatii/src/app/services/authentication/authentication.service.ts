@@ -6,6 +6,8 @@ import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
+    private login_api : string = "http://localhost:31338/api/login";
+    private register_api : string = "http://localhost:31338/api/register";
     private currentUserSubject: BehaviorSubject<string>;
     public currentUser: Observable<string>;
 
@@ -18,12 +20,12 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(username: string, password: string) {
+    login(email: string, password: string) {
       let params = new HttpParams()
-      .set('username',username)
+      .set('email',email)
       .set('password',password);
       
-        return this.http.get<any>("http://localhost:31338/api/login", {params})
+        return this.http.get<any>(this.login_api, {params})
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user.jwt));
@@ -36,5 +38,13 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
         this.currentUserSubject.next(null);
+    } 
+
+    register(email:string,password:string) : Observable<any> {
+        let params = new HttpParams()
+        .set('email',email)
+        .set('password',password);
+        
+        return this.http.get<any>(this.register_api, {params});
     }
 }

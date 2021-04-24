@@ -5,13 +5,13 @@
       <hr>
 
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input [(ngModel)]="email" name="email" type="text" placeholder="Enter Email" required>
   
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input  [(ngModel)]="password" name="password" type="password" placeholder="Enter Password" required>
   
       <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <input  [(ngModel)]="repeat_password" name="repeat_password"  type="password" placeholder="Repeat Password" required>
   
       <label>
         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
@@ -20,8 +20,8 @@
       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
   
       <div class="clearfix">
-        <button type="button" class="cancelbtn">Cancel</button>
-        <button type="submit" class="signupbtn">Sign Up</button>
+        <button (click)="onCancel()" type="button" class="cancelbtn">Cancel</button>
+        <button (click)="onRegister()" type="submit" class="signupbtn">Sign Up</button>
       </div>
     </div>
   </form>

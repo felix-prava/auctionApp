@@ -11,7 +11,7 @@ import { AuthenticationService } from 'src/app/services/authentication/authentic
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-   username : string;
+   email : string;
    password : string;
   loginForm: FormGroup;
   formGroup : FormGroup;
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   logIn() {
-     this.authenticationService.login(this.username,this.password).subscribe(res=>{
+     this.authenticationService.login(this.email,this.password).subscribe(res=>{
        if(res) {
          this.router.navigate([""]);
          this.dialogRef.close();

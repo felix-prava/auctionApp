@@ -18,6 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { ErrorInterceptor } from './interceptors/error-incerceptor';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ErrorInterceptor } from './interceptors/error-incerceptor';
     MultiSelectComponent,
     LoginComponent,
     RegisterComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
