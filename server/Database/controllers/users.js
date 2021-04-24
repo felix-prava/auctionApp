@@ -8,7 +8,12 @@ const addUser =  async (req, res) => {
     console.log(req.query);
     const user = new User({
         email: req.query.email,
-        password: req.query.password
+        password: req.query.password,
+        username : "",
+        first_name : "",
+        last_name : "",
+        location : "",
+        phoneNumber : ""
     });
 
     try {
@@ -24,7 +29,7 @@ const addUser =  async (req, res) => {
 const getUser = async (req, res) => {
     console.log(req);
     try {
-        const user = await User.findOne({email: req.query.email,password:req.query.password});
+        const user = await User.findOne({email: req.query.email});
         if (!user)
             return res.status(400).send('No user found');
         res.status(200).send(user);
@@ -36,8 +41,7 @@ const getUser = async (req, res) => {
 //Delete a specific user router.delete('/:id',
 const deleteUser = async (req, res) => {
     try{
-        const userDeleted = await User.deleteOne({email:req.query.email,
-                                                  password:req.query.password}); //or maybe I should try remove instead of deleteOne
+        const userDeleted = await User.deleteOne({email:req.query.email}); //or maybe I should try remove instead of deleteOne
         res.status(200).json(userDeleted);
     } catch(err){
         res.json({message: err})
@@ -49,8 +53,8 @@ const deleteUser = async (req, res) => {
     try{
         //WARNING : add parameters that were updated
         const updatedUser = await User.updateOne(
-            {_id: req.params.id}, 
-            {$set: {name: req.query.name}});
+            {email: req.query.email}, 
+            {$set: req.query});
         res.json(updatedUser);
     } catch (err) {
         res.json({message: err});

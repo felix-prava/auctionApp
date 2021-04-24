@@ -15,12 +15,12 @@ const app = express();
 app.use(cors());
 
 //Connect to DB
-mongoose.connect(config.config.mongo_connection_details.url,config.mongo_options)
+mongoose.connect(config.config.mongo_connection_details.cloud_url)
     .then((result) => {
         console.log('CONNECTED TO MONGO')
     })
     .catch((error) => {
-        console.log('ERROR CONNECTION TO MONGO');
+        console.log(error);
     });
 
 

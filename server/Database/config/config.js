@@ -9,7 +9,7 @@ const MONGO_PASSWORD = process.env.MONGO_PASSWORD || null;
 const MONGO_URL = process.env.MOGNO_URL ||  'mongodb://' + MONGO_HOSTNAME +':'+MONGO_PORT+"/AuctionSite";
 const SERVER_PORT = process.env.SERVER_PORT || 31337;
 const SERVER_AUTH_KEY = process.env.SERVER_AUTH_KEY || "shhh!_it's_a_secret";
-
+const MONGO_CLOUD_URL = process.env.MONGO_CLOUD_URL || "mongodb+srv://SiteLicitatii:SiteLicitatii@cluster0.o9huu.mongodb.net/SiteLicitatii?retryWrites=true&w=majority"
 
 const MONGO_OPTIONS = {
     useUnifiedTopology: true,
@@ -26,7 +26,8 @@ const MONGO_CONNECTION_DETAILS = {
     port : MONGO_PORT,
     username : MONGO_USER,
     password : MONGO_PASSWORD,
-    url : MONGO_URL
+    url : MONGO_URL,
+    cloud_url : MONGO_CLOUD_URL
 };
 
 const SERVER_OPTIONS = {

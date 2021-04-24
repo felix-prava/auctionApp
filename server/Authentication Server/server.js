@@ -19,12 +19,6 @@ const registerRoute = require('./routes/register');
 app.use('/api/login', loginRoute);
 app.use('/api/register', registerRoute);
 
-
-//Home route
-app.get('/', (req, res) => {
-    res.send('Test!!!');
-});
-
 //Start server
 app.listen(config.server_options.port, () => 
     console.log(`Server up and running on port ${config.server_options.port}!`)

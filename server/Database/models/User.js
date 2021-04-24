@@ -14,6 +14,7 @@ let UserSchema = mongoose.Schema({
     },
     email :{
         type: String,
+        
         required: true,
         min: 6,
         max: 255
@@ -32,14 +33,10 @@ let UserSchema = mongoose.Schema({
     },
     phoneNumber :{
         type: String
-    },
-    date: {
-        type: Date,
-        default: Date.now
     }
     },
     {
-        collection : "users",
+        collection : "Users",
         timestamps : true
     }
 );
