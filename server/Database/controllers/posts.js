@@ -46,7 +46,7 @@ const getPost = async (req, res) => {
 //Delete a specific post
 const deletePost = async (req, res) => {
     try{
-        const postDeleted = await Car.deleteOne({_id: req.params.id});
+        const postDeleted = await Post.deleteOne({_id: req.params.id});
         res.status(200).json(postDeleted);
     } catch(err){
         res.json({message: err})
