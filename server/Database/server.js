@@ -7,11 +7,6 @@ const config = require("./config/config.js");
 
 //Init app
 const app = express();
-
-//Body Parser Middleware
-
-//Parse application/json
-
 app.use(cors());
 
 //Connect to DB
@@ -26,15 +21,11 @@ mongoose.connect(config.config.mongo_connection_details.cloud_url)
 
 //Import routes
 const usersRoute = require('./routes/users');
-// const authRoute = require('./routes/auth');
 const postsRoute = require('./routes/posts');
-// const carsRoute = require('./routes/cars');
 
 //Route Middlewares
 app.use('/api/users', usersRoute);
-// app.use('/api/auth', authRoute);
 app.use('/api/posts', postsRoute);
-// app.use('/api/cars', carsRoute);
 
 //Home route
 app.get('/', (req, res) => {
