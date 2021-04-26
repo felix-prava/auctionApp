@@ -7,6 +7,13 @@ const User = require('../models/User');
 const addUser =  async (req, res) => {
     console.log(req.query);
     const user = new User({
+        email: req.query.email,
+        password: req.query.password,
+        username : req.query.username,
+        first_name : req.query.first_name,
+        last_name : req.query.last_name,
+        location : req.query.location,
+        phoneNumber : req.query.phoneNumber,
     });
 
     try {

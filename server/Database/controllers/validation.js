@@ -1,7 +1,7 @@
 //Validation
 const Joi = require('@hapi/joi');
 
-//Register validation
+//Post validation
 const postValidation = (data) => {
     const schema = Joi.object({
         price: Joi.number()
@@ -18,7 +18,7 @@ const postValidation = (data) => {
         auction_type: Joi.string()
             .min(3)
             .required(),
-        //images: Joi.string()
+        //images:
             //.min(3)
             //.required(),
     });
