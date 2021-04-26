@@ -19,6 +19,7 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { ErrorInterceptor } from './interceptors/error-incerceptor';
 import { ErrorComponent } from './components/error/error.component';
+import { PostingPageComponent } from './pages/posting-page/posting-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ErrorComponent } from './components/error/error.component';
     LoginComponent,
     RegisterComponent,
     ErrorComponent,
+    PostingPageComponent,
   ],
   imports: [
     BrowserModule,
