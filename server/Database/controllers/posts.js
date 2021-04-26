@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { postValidation } = require('./validation')
 const Post = require('../models/Post');
 
 //Get all the posts
@@ -14,15 +15,24 @@ const getAllPosts = async (req, res) => {
 
 //Add a post into the DB
 const addPost = (req, res) => {
-    console.log(req.query);
-    //WARNING : needs post verification
+
+    //Data validation before creating a post
+    const { error } = postValidation(req.body);
+    if (error)
+        return res.status(400).send(error.details[0].message);
+
     //foloseste req.query ca sa iei parametrii
     console.log(req.query);
     //foloseste api tester si transmite ceva cu query params
     //se transmite in format json 
 
     const post = new Post({
-        //WARNING : aici e munca de chinez bro
+        //car : type : CarSchema to be added
+        price: req.query.price,
+        vat: req.query.vat,
+        bid_time_remaining : req.query.bid_time_remaining,
+        auction_type : req.query.auction_type,
+        //images : req.query.images
     });
     post.save()
     .then(data => {

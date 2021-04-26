@@ -146,7 +146,8 @@ let PostSchema = mongoose.Schema({
     images :{
         //type: [File] should be
     }
-    },{
+},
+    {
         collection : "Posts",
         timestamps : true
     }

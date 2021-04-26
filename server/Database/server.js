@@ -18,7 +18,6 @@ mongoose.connect(config.config.mongo_connection_details.cloud_url)
         console.log(error);
     });
 
-
 //Import routes
 const usersRoute = require('./routes/users');
 const postsRoute = require('./routes/posts');

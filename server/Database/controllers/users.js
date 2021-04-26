@@ -7,13 +7,6 @@ const User = require('../models/User');
 const addUser =  async (req, res) => {
     console.log(req.query);
     const user = new User({
-        email: req.query.email,
-        password: req.query.password,
-        username : "",
-        first_name : "",
-        last_name : "",
-        location : "",
-        phoneNumber : ""
     });
 
     try {
@@ -23,6 +16,16 @@ const addUser =  async (req, res) => {
         res.status(400).send(err);
     }
 };
+
+//Get all the users
+router.get('/', async (req, res) => {
+    try{
+        const users = await User.find();
+        res.json(users);
+    } catch{
+        res.status(420).json({ err })
+    }
+});
 
 
 //Get a specific user router.get('/:id', 
@@ -38,6 +41,16 @@ const getUser = async (req, res) => {
     }
 };
 
+//Get a specific user
+router.get('/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+        res.status(200).json(user);
+    } catch(err){
+        res.json({message: err});
+    }
+});
+
 //Delete a specific user router.delete('/:id',
 const deleteUser = async (req, res) => {
     try{
@@ -47,6 +60,16 @@ const deleteUser = async (req, res) => {
         res.json({message: err})
     }
 };
+
+//Delete a specific user
+router.delete('/:id', async (req, res) => {
+    try{
+        const userDeleted = await User.deleteOne({_id: req.params.id});
+        res.status(200).json(userDeleted);
+    } catch(err){
+        res.json({message: err})
+    }
+});
 
 //Update a specific user router.patch('/:id',
  const updateUser = async (req, res) => {
