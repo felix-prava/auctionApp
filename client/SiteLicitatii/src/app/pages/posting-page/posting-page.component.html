@@ -23,6 +23,7 @@
         <label><span> </span><input type="submit" value="Submit" /></label> -->
 
         <label for="field4"><span>Brand <span class="required">*</span></span><select name="field4" class="select-field">
+            <option value="" selected disabled hidden>Choose here</option>
             <option value="Audi">Audi</option>
             <option value="BMW">B.M.W</option>
             <option value="Mercedes">Mercedes</option>
@@ -43,7 +44,24 @@
 
         <label for="field1"><span>Engine size(cm<sup>3</sup>) <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
 
-        <label for="field1"><span>Engine size(cm<sup>3</sup>) <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
+        <label for="field1"><span>Production year <span class="required">*</span></span><input type="month" id="start" name="start"
+            min="1960-01"></label>
+        
+        <label for="field4"><span>Fuel type <span class="required">*</span></span><select name="field4" class="select-field">
+            <option value="" selected disabled hidden>Choose here</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Hybrid">Hybrid</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+            <option value="GPL">GPL</option>
+        </select></label>
+
+        <label for="field4"><span>Transmission <span class="required">*</span></span><select name="field4" class="select-field">
+            <option value="" selected disabled hidden>Choose here</option>
+            <option value="Manual-gearbox">Manual gearbox</option>
+            <option value="Semi-automatic">Semi-automatic</option>
+            <option value="Automatic">Automatic</option>
+        </select></label>
         
     </form>
 </div>
