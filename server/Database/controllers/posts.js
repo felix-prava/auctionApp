@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { postValidation } = require('./validation')
 const Post = require('../models/Post');
+const filters = require('./filters');
 
 //Get all the posts
 const getAllPosts = async (req, res) => {
+    console.log(req.query);
+    console.log();
     try{
-        const posts = await Post.find();
+        const posts = await Post.find(JSON.parse(filters.buildFilterObject(req.query)));
+        
         res.status(200).json(posts);
     } catch{
         res.json({ err })
@@ -15,25 +18,7 @@ const getAllPosts = async (req, res) => {
 
 //Add a post into the DB
 const addPost = (req, res) => {
-
-    //Data validation before creating a post
-    const { error } = postValidation(req.body);
-    if (error)
-        return res.status(400).send(error.details[0].message);
-
-    //foloseste req.query ca sa iei parametrii
-    console.log(req.query);
-    //foloseste api tester si transmite ceva cu query params
-    //se transmite in format json 
-
-    const post = new Post({
-        //car : type : CarSchema to be added
-        price: req.query.price,
-        vat: req.query.vat,
-        bid_time_remaining : req.query.bid_time_remaining,
-        auction_type : req.query.auction_type,
-        //images : req.query.images
-    });
+    const post = new Post(req.body);
     post.save()
     .then(data => {
         res.status(200).json(data);
@@ -56,7 +41,7 @@ const getPost = async (req, res) => {
 //Delete a specific post
 const deletePost = async (req, res) => {
     try{
-        const postDeleted = await Post.deleteOne({_id: req.params.id});
+        const postDeleted = await Car.deleteOne({_id: req.params.id});
         res.status(200).json(postDeleted);
     } catch(err){
         res.json({message: err})
