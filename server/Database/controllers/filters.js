@@ -5,3 +5,12 @@ const filters = {
 
 
 }
+let buildFilterObject = (filterSpecifications) => {
+    let value = JSON.stringify(filterSpecifications);
+    Object.keys(filters).forEach(function(key) {
+        value = value.replace(key, filters[key]);
+    });
+    return value
+}
+
+module.exports = { buildFilterObject };
