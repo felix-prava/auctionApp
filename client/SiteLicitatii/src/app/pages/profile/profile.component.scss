@@ -57,5 +57,16 @@ body {
   }
   .posts {
 	display: flex;
-	justify-content: space-between;
+	justify-content:space-between;
+  }
+
+  .profile-button{
+	  background-color: #008C95;
+	  color: white;
+	  border-radius: 10px;
+	  border: #008C95;
+  }
+  .label{
+	  font-size: 16px;
+	  margin-top: 5px;
   }
