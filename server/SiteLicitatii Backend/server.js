@@ -24,7 +24,7 @@ const postsRoute = require('./routes/posts');
 app.use('/api/posts', postsRoute);
 // app.use('/api/cars', carsRoute);
 
-app.use('/api/users',usersRoute);
+//app.use('/api/users',usersRoute);
 
 //Home route
 app.get('/', (req, res) => {
