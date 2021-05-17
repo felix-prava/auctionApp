@@ -5,6 +5,7 @@ const { loginValidation } = require('./validation')
 const databaseConfig = require('../config/config.js');
 const reqeust_promise = require('request-promise');
 
+
 const loginUser = async (req,res) => {
    //Data validation before creating a user
     const { error } = loginValidation(req.query);

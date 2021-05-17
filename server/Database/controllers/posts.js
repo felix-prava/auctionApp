@@ -41,7 +41,7 @@ const getPost = async (req, res) => {
 //Delete a specific post
 const deletePost = async (req, res) => {
     try{
-        const postDeleted = await Car.deleteOne({_id: req.params.id});
+        const postDeleted = await Post.deleteOne({_id: req.params.id});
         res.status(200).json(postDeleted);
     } catch(err){
         res.json({message: err})
@@ -51,7 +51,10 @@ const deletePost = async (req, res) => {
 //Update a specific post
 const updatePost = async (req, res) => {
     try{
-
+        console.log(req.query);
+        const updatedPost = await Post.updateOne({_id:req.query._id},req.query);
+        console.log(updatedPost);
+        res.status(200).json(updatedPost);
     } catch (err) {
         res.json({message: err});
     }

@@ -9,7 +9,7 @@ router.get('/readAll',postsConfig.getAllPosts);
 router.post('/insert',postsConfig.addPost);
 
 //Get a specific post from the DB
-router.get('/read',postsConfig.getPost);
+router.get('/real',postsConfig.getPost);
 
 //Update a specific post
 router.patch('/update',postsConfig.updatePost);

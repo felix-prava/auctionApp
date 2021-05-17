@@ -1,156 +1,161 @@
 let mongoose = require('mongoose');
 
-//Car origin
-const originCarSchema = mongoose.Schema({
-    pickup_location :{
-        type: String
-    },
-    country_origin :{
-        type: String
-    },
-    selling_office :{
-        type: String
-    },
-});
-
-//Car specifications
-const specificationsCarSchema = mongoose.Schema({
-    first_registration :{
-        type: String
-    },
-    mileage :{
-        type: Number
-    },
-    fuel_type :{
-        type: String
-    },
-    transmission_type :{
-        type: String
-    },
-    co2_emissions_standard :{
-        type: String
-    },
-    co2_emissions_minimum_value :{
-        type: Number
-    },
-    power :{
-        type: Number
-    },
-    engine_size :{
-        type: Number
-    },
-    body_type :{
-        type: String
-    },
-    doors :{
-        type: Number
-    },
-    number_of_places :{
-        type: Number
-    },
-    vin  :{
-        type: String
-    },
-    number_of_keys :{
-        type: Number
-    },
-    paint :{
-        type: String
-    }
-});
-
-//Car damage
-const damageCarSchema = mongoose.Schema({
-    front :{
-        type: String
-    },
-    rear :{
-        type: String
-    },
-    right_side :{
-        type: String
-    },
-    left_side :{
-        type: String
-    },
-    components :{
-        type: [String]
-    },
-});
-
-const titleCarSchema = mongoose.Schema({
-    car_model :{
-        type: String
-    },
-    car_engine_size :{
-        type: Number
-    },
-    car_year :{
-        type: Number
-    },
-    car_fuel_type :{
-        type: String
-    },
-    car_transmission :{
-        type: String
-    },
-    car_power :{
-        type: Number
-    },
-    car_mileage :{
-        type: Number
-    }
-});
-
-// Car Schema
-const CarSchema = mongoose.Schema({
-    car_title :{
-        type: titleCarSchema
-    },
-    car_specifications :{
-        type: specificationsCarSchema
-    },
-    car_options :{
-        type: [String]
-    },
-    car_origin :{
-        type: originCarSchema
-    },
-    car_damage :{
-        type: damageCarSchema
-    }
-});
-
-// Post Schema
 let PostSchema = mongoose.Schema({
-    car :{
-        type : CarSchema,
+    email : {
+        type:String,
         required:true
     },
-    price :{
-        type: Number,
-        required: true
+    title : {
+        car_model : {
+            type : String,
+            require:true
+        },
+        car_engine_size : {
+            type : Number,
+            require:true
+        },
+        car_year : {
+            type : Number,
+            require:true
+        },
+        car_fuel_type : {
+            type : String,
+            require:true
+        },
+        car_transmission : {
+            type : String,
+            require:true
+        },
+        car_power: {
+            type : Number,
+            require:true
+        },
+        car_mileage: {
+            type : Number,
+            require:true
+        }
     },
-    vat :{
-        type: String,
-        required: true
+    car_details : {
+        car_specifications: {
+          first_registration : {
+              type: String,
+              required:true
+          },
+          mileage: {
+            type : Number,
+            require:true
+        },
+          fuel_type: {
+            type : String,
+            require:true
+        },
+          transmission_type: {
+            type : String,
+            require:true
+        },
+          co2_emissions_standard: {
+            type : String,
+            require:true
+        },
+          co2_emissions_minimum_value: {
+            type : Number,
+            require:true
+        },
+          power: {
+            type : Number,
+            require:true
+        },
+          engine_size: {
+            type : Number,
+            require:true
+        },
+          body_type: {
+            type : String,
+            require:true
+        },
+          doors: {
+            type : Number,
+            require:true
+        },
+          number_of_places:{
+            type : Number,
+            require:true
+        },
+          vin: {
+            type : String,
+            require:true
+        },
+          number_of_keys: {
+            type : Number,
+            require:true
+        },
+          paint:{
+            type : String,
+            require:true
+        },
+        },
+        car_options: [
+            {
+                type : String,
+                require:true
+            },
+        ],
+        car_origin: {
+            pickup_location:  {
+                type : String,
+                require:true
+            },
+            country_origin:  {
+                type : String,
+                require:true
+            },
+            selling_office:  {
+                type : String,
+                require:true
+            },
+          },
+          car_damage: [
+            {
+                type : String,
+                require:true
+            }
+        ]
     },
-    bid_time_remaining :{
-        type: String,
-        required: true
+    price:  {
+        type : Number,
+        require:true
     },
-    auction_type :{
-        type: String,
-        required: true
+    vat: {
+        type : String,
+        require:true
     },
-    images :{
-        //type: [File] should be
+    bid_time_remaining: {
+        type : Date,
+        require:true
+    },
+    last_bid : {
+        type:Number
+    },
+    bid_finished : {
+        type : Boolean
+    },
+    last_bidder : {
+        type : String
+    },
+    bidding_people : [
+        {
+            type:String
+        }
+    ],
+    auction_type: {
+        type : String,
+        require:true
     }
+
 },
-    {
-        collection : "Posts",
-        timestamps : true
-    }
-);
+{
+    collection : "Posts",
+    timestamps : true
+})
 
 const Post = module.exports = mongoose.model('Post', PostSchema);

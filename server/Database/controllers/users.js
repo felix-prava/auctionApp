@@ -9,11 +9,13 @@ const addUser =  async (req, res) => {
     const user = new User({
         email: req.query.email,
         password: req.query.password,
-        username : req.query.username,
-        first_name : req.query.first_name,
-        last_name : req.query.last_name,
-        location : req.query.location,
-        phoneNumber : req.query.phoneNumber,
+        username : "",
+        first_name : "",
+        last_name : "",
+        location : "",
+        phoneNumber : "",
+        bids_won : [],
+        bids_placed : []
     });
 
     try {
@@ -23,16 +25,6 @@ const addUser =  async (req, res) => {
         res.status(400).send(err);
     }
 };
-
-//Get all the users
-router.get('/', async (req, res) => {
-    try{
-        const users = await User.find();
-        res.json(users);
-    } catch{
-        res.status(420).json({ err })
-    }
-});
 
 
 //Get a specific user router.get('/:id', 
@@ -48,16 +40,6 @@ const getUser = async (req, res) => {
     }
 };
 
-//Get a specific user
-router.get('/:id', async (req, res) => {
-    try {
-        const user = await User.findById(req.params.id);
-        res.status(200).json(user);
-    } catch(err){
-        res.json({message: err});
-    }
-});
-
 //Delete a specific user router.delete('/:id',
 const deleteUser = async (req, res) => {
     try{
@@ -68,23 +50,29 @@ const deleteUser = async (req, res) => {
     }
 };
 
-//Delete a specific user
-router.delete('/:id', async (req, res) => {
-    try{
-        const userDeleted = await User.deleteOne({_id: req.params.id});
-        res.status(200).json(userDeleted);
-    } catch(err){
-        res.json({message: err})
-    }
-});
-
 //Update a specific user router.patch('/:id',
  const updateUser = async (req, res) => {
     try{
+        const updatedUser = "";
         //WARNING : add parameters that were updated
-        const updatedUser = await User.updateOne(
-            {email: req.query.email}, 
-            {$set: req.query});
+        if(req.query.won === "true") {
+            console.log("user bid updated")
+             updateUser = await User.updateOne(
+                {email: req.query.email}, 
+                {$push: {bids_won:req.query.bids_won}});    
+        }
+        else if(req.query.placed === "true") {
+            console.log("user bid_placed updated")
+
+            updateUser = await User.updateOne(
+                {email: req.query.email}, 
+                {$push: {bids_placed:req.query.bids}});
+        }
+        else {
+            updatedUser = await User.updateOne(
+                {email: req.query.email}, 
+                {$set: req.query});
+        }
         res.json(updatedUser);
     } catch (err) {
         res.json({message: err});

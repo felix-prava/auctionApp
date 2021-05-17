@@ -33,7 +33,17 @@ let UserSchema = mongoose.Schema({
     },
     phoneNumber :{
         type: String
-    }
+    },
+    bids_won : [
+        {
+            type : String
+        }
+    ],
+    bids_placed : [
+        {
+            type: String
+        }
+    ]
     },
     {
         collection : "Users",
