@@ -42,9 +42,9 @@
 
         <label for="field2"><span>Model <span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
 
-        <label for="field3"><span>Engine size (cm<sup>3</sup>) <span class="required">*</span></span><input [(ngModel)]="car.title.car_engine_size" [(ngModel)]="car.car_details.car_specifications.engine_size" type="text" class="input-field" name="field3" value="" /></label>  
+        <label for="field3"><span>Engine size (cm<sup>3</sup>) <span class="required">*</span></span><input [(ngModel)]="car.title.car_engine_size" [(ngModel)]="car.car_details.car_specifications.engine_size" type="number" class="input-field" name="field3" value="" /></label>  
 
-        <label for="field19"><span>Production year <span class="required">*</span></span><input [(ngModel)]="car.title.car_year" type="text" class="input-field" name="field7" value="" /></label>
+        <label for="field19"><span>Production year <span class="required">*</span></span><input [(ngModel)]="car.title.car_year" type="number" class="input-field" name="field7" value="" /></label>
 
         <label for="field5"><span>Fuel type <span class="required">*</span></span><select [(ngModel)]="car.title.car_fuel_type" [(ngModel)]="car.car_details.car_specifications.fuel_type"  name="field5" class="select-field">
             <option value="" selected disabled hidden>Choose here</option>
@@ -62,9 +62,9 @@
             <option value="Automatic">Automatic</option>
         </select></label>
 
-        <label for="field7"><span>Engine power (horsepower) <span class="required">*</span></span><input [(ngModel)]="car.title.car_power" [(ngModel)]="car.car_details.car_specifications.power" type="text" class="input-field" name="field7" value="" /></label>
+        <label for="field7"><span>Engine power (horsepower) <span class="required">*</span></span><input [(ngModel)]="car.title.car_power" [(ngModel)]="car.car_details.car_specifications.power" type="number" class="input-field" name="field7" value="" /></label>
 
-        <label for="field8"><span>Mileage (km) <span class="required">*</span></span><input [(ngModel)]="car.title.car_mileage" [(ngModel)]="car.car_details.car_specifications.mileage" type="text" class="input-field" name="field8" value="" /></label>
+        <label for="field8"><span>Mileage (km) <span class="required">*</span></span><input [(ngModel)]="car.title.car_mileage" [(ngModel)]="car.car_details.car_specifications.mileage" type="number" class="input-field" name="field8" value="" /></label>
 
         <label for="field4"><span>First registration <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_specifications.first_registration" type="month" id="start" name="start"
             min="1960-01"></label>
@@ -79,7 +79,7 @@
             <option value="EU6">EU6</option>
         </select></label>
 
-        <label for="field10"><span>CO2 emissions (g/km) <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_specifications.co2_emissions_minimum_value" type="text" class="input-field" name="field10" value="" /></label>
+        <label for="field10"><span>CO2 emissions (g/km) <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_specifications.co2_emissions_minimum_value" type="number" class="input-field" name="field10" value="" /></label>
 
         <label for="field11"><span>Body type <span class="required">*</span></span><select [(ngModel)]="car.car_details.car_specifications.body_type" name="field11" class="select-field">
             <option value="" selected disabled hidden>Choose here</option>
@@ -91,39 +91,15 @@
             <option value="EstateCar">Estate Car</option>
         </select></label>
 
-        <label for="field12"><span>Number of doors <span class="required">*</span></span><select [(ngModel)]="car.car_details.car_specifications.doors" name="field12" class="select-field">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-        </select></label>
+        <label for="field23"><span>Number of doors <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_specifications.doors" type="number" class="input-field" name="field23" value="" /></label>
 
-        <label for="field13"><span>Number of seats <span class="required">*</span></span><select [(ngModel)]="car.car_details.car_specifications.number_of_places" name="field13" class="select-field">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-        </select></label>
+
+        <label for="field24"><span>Number of seats <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_specifications.number_of_places" type="number" class="input-field" name="field24" value="" /></label>
 
         <label for="field16"><span>Car VIN <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_specifications.vin" type="text" class="input-field" name="field16" value="" /></label>
 
-        <label for="field14"><span>Number of keys <span class="required">*</span></span><select [(ngModel)]="car.car_details.car_specifications.number_of_keys" name="field14" class="select-field">
-            <option value="" selected disabled hidden>Choose here</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-        </select></label>
+
+        <label for="field25"><span>Number of keys <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_specifications.number_of_keys" type="number" class="input-field" name="field25" value="" /></label>
 
         <label for="field15"><span>Paint <span class="required">*</span></span><select [(ngModel)]="car.car_details.car_specifications.paint" name="field15" class="select-field">
             <option value="" selected disabled hidden>Choose here</option>
@@ -149,9 +125,8 @@
         <label for="field22"><span>Selling Office <span class="required">*</span></span><input [(ngModel)]="car.car_details.car_origin.selling_office" type="text" class="input-field" name="field22" value="" /></label>
 
 
-        <label for="field17"><span>Wanted Price (€) <span class="required">*</span></span><input [(ngModel)]="car.price" type="text" class="input-field" name="field17" value="" /></label>
+        <label for="field17"><span>Wanted Price (€) <span class="required">*</span></span><input [(ngModel)]="car.price" type="number" class="input-field" name="field17" value="" /></label>
 
-        <label for="field18"><span>End of the auction <span class="required">*</span></span><input type="month" id="start" name="start"
-            min="2021-05"></label>
+        <label for="field18"><span>End of the auction <span class="required">*</span></span><input class="input-field" type="text" id="start" name="start"></label>
     </form>
 </div>
